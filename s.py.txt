@@ -1,0 +1,137 @@
+class Library():
+
+    def __init__(self,l_b):
+
+        self.l_d = {}
+
+        self.list_of_books = l_b
+
+        for books in self.list_of_books:
+
+            self.l_d[books] = None
+
+  
+    def a_b(self,a):
+
+        self.list_of_books.append(a)
+
+        self.l_d[a] = None
+        
+	print("The book is added successfully\n")
+
+
+    def r_b(self,a):
+
+        if a in self.list_of_books:
+
+            if self.l_d[a] is not None:
+
+                self.l_d.pop(a)
+
+                print("The book is returned successfully\n")
+
+            else:
+
+                print("Sorry! this book is not lend by anybody")
+
+        else:
+
+            print("Wrong Input")
+
+
+    def le_b(self,n,a):
+
+        if a in self.list_of_books:
+
+            if self.l_d[a] is None:
+
+                self.l_d[a]  = n
+
+                print("The book is lend successfully\n")
+
+            else:
+
+                print("Sorry! this book is lend by {}".format(self.l_d[a]))
+
+        else:
+
+            print("Wrong Input")
+
+
+   def di_b(self):
+
+        for i in self.list_of_books:
+
+            print(i)
+
+
+   def d_b(self,a):
+
+        if a in self.list_of_books:
+
+            self.list_of_books.remove(a)
+
+            self.l_d.pop(a)
+
+            print("The book is deleted successfully")
+
+        else:
+
+            print("Wrong Input")
+
+
+if __name__ == '__main__':
+
+    l_b = ["PYTHON","MICROPROCESSOR","LET US C","ANSI C","THEORY OF COMPUTATION"]
+
+    s_k = 9183645
+
+    k = Library(l_b)
+
+    e = 1
+
+    while(e==1):
+
+        i = int(input("Enter \n1 Add Book \n2 Return Book \n3 Lend Book \n4 Delete Book \n5 	Display Books \n6 Exit: "))
+
+        if i==1:
+
+            a = input("Enter the book name: ")
+
+            k.a_b(a)
+
+        elif i==2:
+
+            a = input("Enter the book name: ")
+
+            k.r_b(a)
+
+        elif i==3:
+
+            n = input("Enter your name: ")
+
+            a = input("Enter the book name: ")
+
+            k.le_b(n,a)
+
+        elif i==4:
+
+            i_k = int(input("Enter the password: "))
+
+            if (i_k==s_k):
+
+                a = input("Enter the book name: ")
+
+                k.d_b(a)
+
+        elif i==5:
+
+            k.di_b()
+
+        elif i==6:
+
+            e = 0
+
+        else:
+
+            print("Wrong Input")
